@@ -19,19 +19,19 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
-                                .requestMatchers("/css/**", "/images/**", "/js/**", "/storage/**", "/", "/signup/**", "/houses", "/houses/{id}", "/stripe/webhook").permitAll()  // ‚·‚×‚Ä‚Ìƒ†�[ƒU�[‚ÉƒAƒNƒZƒX‚ð‹–‰Â‚·‚éURL
-                                .requestMatchers("/admin/**").hasRole("ADMIN")  // ŠÇ—�ŽÒ‚É‚Ì‚ÝƒAƒNƒZƒX‚ð‹–‰Â‚·‚éURL
-                                .anyRequest().authenticated()                   // �ã‹LˆÈŠO‚ÌURL‚Íƒ�ƒOƒCƒ“‚ª•K—v�i‰ïˆõ‚Ü‚½‚ÍŠÇ—�ŽÒ‚Ì‚Ç‚¿‚ç‚Å‚àOK�j
+                                .requestMatchers("/css/**", "/images/**", "/js/**", "/storage/**", "/", "/signup/**", "/houses", "/houses/{id}", "/stripe/webhook").permitAll()  
+                                .requestMatchers("/admin/**").hasRole("ADMIN")  
+                                .anyRequest().authenticated()                  
                 )
                 .formLogin((form) -> form
-                                .loginPage("/login")              // ƒ�ƒOƒCƒ“ƒy�[ƒW‚ÌURL
-                                .loginProcessingUrl("/login")     // ƒ�ƒOƒCƒ“ƒtƒH�[ƒ€‚Ì‘—�M�æURL
-                                .defaultSuccessUrl("/?loggedIn")  // ƒ�ƒOƒCƒ“�¬Œ÷Žž‚ÌƒŠƒ_ƒCƒŒƒNƒg�æURL
-                                .failureUrl("/login?error")       // ƒ�ƒOƒCƒ“Ž¸”sŽž‚ÌƒŠƒ_ƒCƒŒƒNƒg�æURL
+                                .loginPage("/login")              
+                                .loginProcessingUrl("/login")     
+                                .defaultSuccessUrl("/?loggedIn")  
+                                .failureUrl("/login?error")       
                                 .permitAll()
                 )
                 .logout((logout) -> logout
-                                .logoutSuccessUrl("/?loggedOut")  // ƒ�ƒOƒAƒEƒgŽž‚ÌƒŠƒ_ƒCƒŒƒNƒg�æURL
+                                .logoutSuccessUrl("/?loggedOut")  
                                 .permitAll()
 
                 )
